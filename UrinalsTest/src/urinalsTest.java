@@ -9,4 +9,12 @@ import org.junit.jupiter.api.Assertions;
             System.out.println("====== TEJA LAM == TEST ONE EXECUTED =======");
             Assertions.assertEquals(false,i);
         }
+
+     @Test
+     void testCountUrinalsBeforeAddingCode() {
+         Implementation implement = new Implementation();
+         Integer i = implement.countUrinals("10000");
+         System.out.println("====== TEJA LAM == TEST TWO EXECUTED =======");
+         Assertions.assertEquals(2,i);
+     }
     }
