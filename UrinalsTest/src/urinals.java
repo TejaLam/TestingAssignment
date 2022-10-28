@@ -1,4 +1,8 @@
 
+/**
+ * Title : Urinals Testing
+ * @author Teja Lam
+ */
 public class urinals
 {
     public static void main(String[] args)
