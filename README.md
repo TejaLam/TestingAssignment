@@ -1,1 +1,1 @@
-# TestingAssignment
+This program will return the maximum of free urinals as an integer for a given string.
