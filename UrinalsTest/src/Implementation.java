@@ -24,8 +24,9 @@ public class Implementation
         return true;
     }
 
-    public void openFile() {
-        
+    public boolean openFile() {
+      System.out.println("Not yet Implemented");
+      return true;
     }
 
     public Integer countUrinals(String input_str) {

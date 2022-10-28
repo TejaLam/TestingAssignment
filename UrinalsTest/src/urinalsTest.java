@@ -17,4 +17,13 @@ import org.junit.jupiter.api.Assertions;
          System.out.println("====== TEJA LAM == TEST TWO EXECUTED =======");
          Assertions.assertEquals(2,i);
      }
+
+     @Test
+     void testOpenFileIntoSystem(){
+         Implementation implement = new Implementation();
+         System.out.println("====== TEJA LAM == TEST THREE EXECUTED =======");
+         Assertions.assertEquals(false,implement.openFile());
+     }
+
+
     }
