@@ -19,11 +19,16 @@ import org.junit.jupiter.api.Assertions;
      }
 
      @Test
-     void testOpenFileIntoSystem(){
-         Implementation implement = new Implementation();
-         System.out.println("====== TEJA LAM == TEST THREE EXECUTED =======");
-         Assertions.assertEquals(false,implement.openFile());
+     public void testOpenFile(){Implementation implementation = new Implementation();
+         Assertions.assertEquals(1,implementation.openFile("src/urinal.dat"));
+         System.out.println("=======Teja Lam==Test three executed========");
      }
 
-
+     @Test
+     public void testWriteToFile(){
+         Implementation implementation = new Implementation();
+         String optFile="src/rule.txt";
+         Assertions.assertEquals(1,implementation.writeToFile(optFile,3));
+         System.out.println("=======Teja Lam==Test four executed========");
+        }
     }

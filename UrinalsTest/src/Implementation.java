@@ -1,4 +1,5 @@
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Implementation
 {
@@ -24,9 +25,75 @@ public class Implementation
         return true;
     }
 
-    public boolean openFile() {
-      System.out.println("Not yet Implemented");
-      return true;
+    public Integer openFile(String path) {
+            try{
+                File file_name=new File(path);
+                if(file_name==null)
+                    throw new IOException();
+
+
+                File count_file=new File("src/counter.txt");
+                if(count_file==null)
+                    throw new IOException();
+                Scanner c=new Scanner(count_file);
+                int counter=Integer.parseInt(c.nextLine());
+
+
+                String output_file="src/rule.txt";
+                if(counter!=0)
+                    output_file="src/rule"+counter+".txt";
+
+
+                Scanner sc=new Scanner(file_name);
+                while(sc.hasNextLine()){
+                    String s=sc.nextLine();
+                    if(s.equals("-1"))
+                        break;
+                    int spaces=countUrinals(s);
+                    writeToFile(output_file,spaces);
+
+                }
+
+
+                FileWriter counter_writer=new FileWriter("src/counter.txt");
+                if(counter_writer==null)
+                    throw new IOException();
+                counter_writer.write(Integer.toString(counter+1));
+                counter_writer.close();
+
+                System.out.println("Now we have Successfully written output to "+output_file);
+                return 1;
+            }
+            catch(IOException e)
+            {
+                System.out.println("Not able Error in opening file");
+                e.printStackTrace();
+                return 0;
+            }
+
+        }
+
+    public Integer writeToFile(String outputfile,int spaces){
+        try {
+            FileWriter fileWriter = new FileWriter(outputfile, true);
+            if(fileWriter==null)
+                throw new IOException();
+            BufferedWriter buffw=new BufferedWriter(fileWriter);
+            if(buffw==null)
+                throw new IOException();
+
+            buffw.write(Integer.toString(spaces));
+            buffw.newLine();
+            buffw.close();
+            return 1;
+        }
+        catch(IOException e){
+            System.out.println("not able to open output file");
+            e.printStackTrace();
+            return 0;
+        }
+
+
     }
 
     public Integer countUrinals(String input_str) {
@@ -79,4 +146,5 @@ public class Implementation
         return total;
 
    }
+
 }
